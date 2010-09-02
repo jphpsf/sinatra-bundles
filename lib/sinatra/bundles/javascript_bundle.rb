@@ -9,7 +9,7 @@ module Sinatra
       # @param [String] name The name of a bundle
       # @return [String] The HTML that can be inserted into the doc
       def to_html(name)
-        prefix = "/#{@app.javascripts}/bundles"
+        prefix = "/#{request.script_name}/#{@app.javascripts}/bundles"
         src = @app.stamp_bundles ? "#{prefix}/#{name}/#{stamp}.js" : "#{prefix}/#{name}.js"
         "<script type='text/javascript' src='#{src}'></script>"
       end

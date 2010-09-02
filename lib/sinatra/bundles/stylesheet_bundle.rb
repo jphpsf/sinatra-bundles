@@ -10,7 +10,7 @@ module Sinatra
       # @return [String] The HTML that can be inserted into the doc
       def to_html(name, media = :all)
         media = media.join(', ') if media.is_a? Array
-        prefix = "/#{@app.stylesheets}/bundles"
+        prefix = "/#{request.script_name}/#{@app.stylesheets}/bundles"
         href = @app.stamp_bundles ? "#{prefix}/#{name}/#{stamp}.css" : "#{prefix}/#{name}.css"
         "<link type='text/css' href='#{href}' rel='stylesheet' media='#{media}' />"
       end
